@@ -13,9 +13,10 @@ import 'package:doctor/popular_doctors.dart';
 import 'package:doctor/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'add_record.dart';
 import 'live_page.dart';
 
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp(home: MedicalRecords()));
+void main() => runApp(MaterialApp(home: AddRecord()));
