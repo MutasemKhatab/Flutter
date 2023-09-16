@@ -5,6 +5,7 @@ import 'package:doctor/booking.dart';
 import 'package:doctor/doctor_details.dart';
 import 'package:doctor/favourite_doctors.dart';
 import 'package:doctor/find_doctors.dart';
+import 'package:doctor/location.dart';
 import 'package:doctor/login.dart';
 import 'package:doctor/main_page.dart';
 import 'package:doctor/medical_records.dart';
@@ -21,4 +22,4 @@ import 'live_page.dart';
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp(home: MedicineOrders()));
+void main() => runApp(MaterialApp(home: Location()));

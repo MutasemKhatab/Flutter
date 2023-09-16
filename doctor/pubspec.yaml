@@ -77,6 +77,7 @@ flutter:
   - assets/images/medical_record.svg
   - assets/images/medicine.svg
   - assets/images/star.svg
+  - assets/images/map.svg
   - assets/images/popular_doctors.jpg
   - assets/images/featuerd_doctor.jpg
   - assets/images/live_doctor.jpeg
