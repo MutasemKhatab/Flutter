@@ -78,11 +78,18 @@ flutter:
   - assets/images/medicine.svg
   - assets/images/star.svg
   - assets/images/map.svg
+  - assets/images/home.svg
+  - assets/images/call_center.svg
+  - assets/images/microscope.svg
+  - assets/images/report.svg
   - assets/images/diagonstics.svg
   - assets/images/popular_doctors.jpg
   - assets/images/featuerd_doctor.jpg
   - assets/images/live_doctor.jpeg
   - assets/images/comment_picture.png
+  - assets/images/diagonstics_doctor3.png
+  - assets/images/diagonstics_doctor2.png
+  - assets/images/diagonstics_doctor1.png
   - assets/images/guy_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -3,6 +3,7 @@
 import 'dart:ui';
 import 'package:doctor/Medicines_orders.dart';
 import 'package:doctor/booking.dart';
+import 'package:doctor/diagonstics_book.dart';
 import 'package:doctor/diagonstics_test.dart';
 import 'package:doctor/doctor_details.dart';
 import 'package:doctor/favourite_doctors.dart';
@@ -25,4 +26,4 @@ import 'live_page.dart';
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp(home:DiagonsticsTests()));
+void main() => runApp(MaterialApp(home: DiagonsticsBook()));
