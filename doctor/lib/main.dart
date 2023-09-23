@@ -18,6 +18,7 @@ import 'package:doctor/my_doctors.dart';
 import 'package:doctor/patient_details.dart';
 import 'package:doctor/patient_details_input.dart';
 import 'package:doctor/popular_doctors.dart';
+import 'package:doctor/privacy_policy.dart';
 import 'package:doctor/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -28,4 +29,4 @@ import 'live_page.dart';
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp(home: PatientDetailsInput()));
+void main() => runApp(MaterialApp(home: PrivacyPolicy()));
