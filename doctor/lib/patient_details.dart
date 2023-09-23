@@ -62,7 +62,7 @@ class PatientDetails extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        'Diagonstics Tests',
+                        'Patient Details',
                         style: TextStyle(
                           color: Color(0xFF333333),
                           fontSize: 18,
