@@ -80,6 +80,7 @@ flutter:
   - assets/images/map.svg
   - assets/images/home.svg
   - assets/images/call_center.svg
+  - assets/images/patient_details_svg.svg
   - assets/images/microscope.svg
   - assets/images/report.svg
   - assets/images/diagonstics.svg
