@@ -6,6 +6,7 @@ import 'package:doctor/booking.dart';
 import 'package:doctor/diagonstics_book.dart';
 import 'package:doctor/diagonstics_test.dart';
 import 'package:doctor/doctor_details.dart';
+import 'package:doctor/doctors.dart';
 import 'package:doctor/favourite_doctors.dart';
 import 'package:doctor/find_doctors.dart';
 import 'package:doctor/help_center.dart';
@@ -19,6 +20,7 @@ import 'package:doctor/patient_details.dart';
 import 'package:doctor/patient_details_input.dart';
 import 'package:doctor/popular_doctors.dart';
 import 'package:doctor/privacy_policy.dart';
+import 'package:doctor/profile.dart';
 import 'package:doctor/settings.dart';
 import 'package:doctor/signup.dart';
 import 'package:flutter/material.dart';
@@ -30,4 +32,4 @@ import 'live_page.dart';
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp());
+void main() => runApp(MaterialApp(home: MainPage()));
