@@ -30,4 +30,4 @@ import 'live_page.dart';
 //TODO  add fontfamily rubik add indexd package
 //overflow when use sized container
 
-void main() => runApp(MaterialApp(home: Settings()));
+void main() => runApp(MaterialApp());
