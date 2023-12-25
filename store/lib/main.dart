@@ -35,6 +35,7 @@ class _MainState extends State<Main> {
         ? currentWidget = Welcome(changeScreen)
         : currentWidget = currentWidget;
     return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
       home: Scaffold(body: currentWidget, backgroundColor: Colors.white),
     );
   }
