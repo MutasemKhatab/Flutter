@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store/widgets/welcome.dart';
 
 //rename widgets
-//TODO Edit text overflow
+//TODO Edit text overflo
 //
 var colorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 206, 213, 91))
