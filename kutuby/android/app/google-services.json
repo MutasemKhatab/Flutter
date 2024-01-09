@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905237080142",
+    "project_id": "kutuby-ca40b",
+    "storage_bucket": "kutuby-ca40b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905237080142:android:b10648d3e35feabc7efb1f",
+        "android_client_info": {
+          "package_name": "com.example.kutuby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLq0QsV7DM_H90QwLDRybfdZkShwiybN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
