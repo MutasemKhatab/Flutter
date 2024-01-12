@@ -39,6 +39,7 @@ class BookProvider extends StateNotifier<List<Book>> {
       book.id = element.id;
       booksList.add(book);
     }
+    booksList.sort((a, b) => b.uploadDate.compareTo(a.uploadDate));
     state = booksList;
     return booksList;
   }

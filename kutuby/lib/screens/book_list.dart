@@ -24,11 +24,14 @@ class _BookListState extends ConsumerState<BookList> {
         backgroundColor: const Color(0xffF3F4F6),
         appBar: AppBar(
             centerTitle: true,
-            backgroundColor: const Color.fromARGB(49, 124, 58, 237),
+            backgroundColor: Color.fromARGB(255, 124, 58, 237),
             title: Text(
               widget.mine ? 'كتبي' : 'جميع الكتب',
-              style:
-                  GoogleFonts.cairo(fontWeight: FontWeight.bold, fontSize: 20),
+              style: GoogleFonts.cairo(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
+              ),
             )),
         body: books.isEmpty
             ? Center(

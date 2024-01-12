@@ -35,33 +35,40 @@ class _HomeState extends ConsumerState<Home> {
                     onTap: user == null
                         ? () {}
                         : () async {
-                            await Navigator.push(
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => BookList(
                                     mine: true,
-                                    books: getAllBooks ??
-                                        <Book>[]
-                                            .where((element) =>
-                                                element.userID == user!.uid)
-                                            .toList(),
+                                    books: ref
+                                        .watch(bookProvider.notifier)
+                                        .getAllBooks()
+                                        .where((element) =>
+                                            element.userID == user!.uid)
+                                        .toList(),
                                   ),
                                 ));
                             setState(() {});
                           },
-                    child: Container(
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromARGB(86, 255, 255, 255)),
-                      clipBehavior: Clip.antiAlias,
-                      child: user != null
-                          ? Image.network(user!.photoURL!)
-                          : const Icon(Icons.person_outline),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(86, 255, 255, 255)),
+                        clipBehavior: Clip.antiAlias,
+                        child: user != null
+                            ? Image.network(user!.photoURL!)
+                            : const Icon(Icons.person_outline),
+                      ),
                     ),
                   ),
                   actions: [
                     IconButton(
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
                       onPressed: () async {
                         if (user == null) {
                           showDialog(
@@ -87,12 +94,14 @@ class _HomeState extends ConsumerState<Home> {
                       },
                     ),
                   ],
-                  backgroundColor: const Color.fromARGB(49, 124, 58, 237),
+                  backgroundColor: Color.fromARGB(255, 124, 58, 237),
                   centerTitle: true,
                   title: Text(
                     'مشاركة الكتب',
                     style: GoogleFonts.cairo(
-                        fontWeight: FontWeight.bold, fontSize: 20),
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   )),
               body: snapshot.connectionState == ConnectionState.waiting
                   ? const Center(

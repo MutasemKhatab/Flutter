@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/gestures.dart';
@@ -78,13 +77,18 @@ class _AddBookState extends ConsumerState<AddBook> {
       }
       if (_formKey.currentState!.validate()) {
         String url = '';
-        final storage = FirebaseStorage.instance
-            .ref()
-            .child(DateTime.now().millisecondsSinceEpoch.toString());
-        await storage.putFile(bookImage!);
+        final storage =
+            await FirebaseStorage.instance.ref().child('books').child(
+                  bookImage!.path.split('/').last,
+                );
+        await storage.putFile(
+            bookImage!,
+            SettableMetadata(
+                contentType: 'image/jpeg',
+                customMetadata: {'userId': user!.uid}));
         url = await storage.getDownloadURL();
+        print(url);
         FirebaseFirestore.instance.collection('books').add({
-          //TODO edit it with the log in thing link firebase
           'user': {
             "publicName": showName,
             "name": user!.displayName,

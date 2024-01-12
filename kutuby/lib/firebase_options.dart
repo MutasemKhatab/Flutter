@@ -55,22 +55,17 @@ class DefaultFirebaseOptions {
       projectId: "kutubuk-b6fdb",
       storageBucket: "kutubuk-b6fdb.appspot.com",
       messagingSenderId: "222482691072",
-      appId: "1:222482691072:android:7f90c9dafe8bf44d5b94e5",
-      measurementId: "G-5LR7605BRX"
+      appId: "1:222482691072:android:35485c38869d8d295b94e5",
+      measurementId: "G-5LR7605BRX");
 
-      // apiKey: 'AIzaSyBLq0QsV7DM_H90QwLDRybfdZkShwiybN4',
-      // appId: '1:905237080142:android:b10648d3e35feabc7efb1f',
-      // messagingSenderId: '905237080142',
-      // projectId: 'kutuby-ca40b',
-      // storageBucket: 'kutuby-ca40b.appspot.com',
-      );
-//TODO add keys for ios app
   static const FirebaseOptions ios = FirebaseOptions(
+    authDomain: "kutubuk-b6fdb.firebaseapp.com",
     apiKey: 'AIzaSyBFkFVBsZkUea5jes8rFG6TceyXWwfTPlU',
-    appId: '1:905237080142:ios:f8fdefa08f71e2907efb1f',
-    messagingSenderId: '905237080142',
-    projectId: 'kutuby-ca40b',
-    storageBucket: 'kutuby-ca40b.appspot.com',
-    iosBundleId: 'com.example.kutuby',
+    appId: '1:222482691072:ios:f9bd2904bb258c025b94e5',
+    projectId: "kutubuk-b6fdb",
+    messagingSenderId: "222482691072",
+    measurementId: "G-5LR7605BRX",
+    storageBucket: "kutubuk-b6fdb.appspot.com",
+    iosBundleId: 'com.kutubuk.app',
   );
 }

@@ -6,7 +6,7 @@ import 'package:kutuby/firebase_options.dart';
 import 'package:kutuby/screens/home.dart';
 
 User? user;
-//edit package name for uploading TODO
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

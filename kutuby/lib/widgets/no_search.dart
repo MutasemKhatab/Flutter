@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -48,8 +50,8 @@ class _NoSearchState extends ConsumerState<NoSearch> {
         print(userCredential.user!.displayName);
         user = userCredential.user;
       });
-      // } catch (e) {
-      //   _showError();
+    } catch (e) {
+      _showError();
     } finally {
       setState(() {
         isLoading = false;
@@ -147,106 +149,115 @@ class _NoSearchState extends ConsumerState<NoSearch> {
                     String collageController = categories.first;
                     await showDialog(
                         context: context,
+                        barrierColor: Colors.black12,
                         builder: (context) =>
                             StatefulBuilder(builder: (context, setState) {
                               final searchController = TextEditingController();
-                              return AlertDialog(
-                                backgroundColor: Colors.white,
-                                surfaceTintColor: Colors.white,
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    TextField(
-                                      onTapOutside: (event) =>
-                                          FocusScope.of(context)
-                                              .requestFocus(FocusNode()),
-                                      textAlign: TextAlign.right,
-                                      controller: searchController,
-                                      style: GoogleFonts.cairo(fontSize: 14),
-                                      decoration: InputDecoration(
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          border: const OutlineInputBorder(),
-                                          hintStyle:
-                                              GoogleFonts.cairo(fontSize: 14),
-                                          hintText: 'بحث عن اسم كتاب'),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      'الكلية',
-                                      style: GoogleFonts.cairo(),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          border: const Border.fromBorderSide(
-                                              BorderSide(
-                                            color: Color.fromARGB(
-                                                255, 202, 201, 201),
-                                            width: 0.5,
-                                          ))),
-                                      child: DropdownButton(
-                                          isExpanded: true,
-                                          underline: const SizedBox(),
-                                          value: collageController,
-                                          items: [
-                                            for (var cat in categories)
-                                              DropdownMenuItem(
-                                                alignment:
-                                                    Alignment.centerRight,
-                                                value: cat,
-                                                child: Text(
-                                                  cat,
-                                                  textDirection:
-                                                      TextDirection.rtl,
-                                                  textAlign: TextAlign.center,
-                                                  style: GoogleFonts.cairo(),
+                              return BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                                child: AlertDialog(
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))),
+                                  backgroundColor: Colors.white,
+                                  surfaceTintColor: Colors.white,
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        onTapOutside: (event) =>
+                                            FocusScope.of(context)
+                                                .requestFocus(FocusNode()),
+                                        textAlign: TextAlign.right,
+                                        controller: searchController,
+                                        style: GoogleFonts.cairo(fontSize: 14),
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            border: const OutlineInputBorder(),
+                                            hintStyle:
+                                                GoogleFonts.cairo(fontSize: 14),
+                                            hintText: 'بحث عن اسم كتاب'),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        'الكلية',
+                                        style: GoogleFonts.cairo(),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: const Border.fromBorderSide(
+                                                BorderSide(
+                                              color: Color.fromARGB(
+                                                  255, 202, 201, 201),
+                                              width: 0.5,
+                                            ))),
+                                        child: DropdownButton(
+                                            isExpanded: true,
+                                            underline: const SizedBox(),
+                                            value: collageController,
+                                            items: [
+                                              for (var cat in categories)
+                                                DropdownMenuItem(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  value: cat,
+                                                  child: Text(
+                                                    cat,
+                                                    textDirection:
+                                                        TextDirection.rtl,
+                                                    textAlign: TextAlign.center,
+                                                    style: GoogleFonts.cairo(),
+                                                  ),
                                                 ),
-                                              ),
-                                          ],
-                                          onChanged: (value) {
-                                            setState(() {
-                                              collageController = value!;
-                                            });
-                                          }),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    FilledButton.icon(
-                                        style: FilledButton.styleFrom(
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(5))),
-                                        onPressed: () {
-                                          if (searchController.text == '') {
-                                            return;
-                                          }
-                                          final result = books
-                                              .where((element) =>
-                                                  element.name.contains(
-                                                      searchController.text) &&
-                                                  element.collage.trim() ==
-                                                      collageController)
-                                              .toList();
-                                          print(collageController);
-                                          print(books.first.collage);
-                                          Navigator.pop(context);
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BookList(books: result),
-                                              ));
-                                        },
-                                        icon: const Icon(Icons.search),
-                                        label: Text(
-                                          'بحث',
-                                          style:
-                                              GoogleFonts.cairo(fontSize: 14),
-                                        )),
-                                  ],
+                                            ],
+                                            onChanged: (value) {
+                                              setState(() {
+                                                collageController = value!;
+                                              });
+                                            }),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      FilledButton.icon(
+                                          style: FilledButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5))),
+                                          onPressed: () {
+                                            if (searchController.text == '') {
+                                              return;
+                                            }
+                                            final result = books
+                                                .where((element) =>
+                                                    element.name.contains(
+                                                        searchController
+                                                            .text) &&
+                                                    element.collage.trim() ==
+                                                        collageController)
+                                                .toList();
+                                            print(collageController);
+                                            print(books.first.collage);
+                                            Navigator.pop(context);
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BookList(books: result),
+                                                ));
+                                          },
+                                          icon: const Icon(Icons.search),
+                                          label: Text(
+                                            'بحث',
+                                            style:
+                                                GoogleFonts.cairo(fontSize: 14),
+                                          )),
+                                    ],
+                                  ),
                                 ),
                               );
                             }));

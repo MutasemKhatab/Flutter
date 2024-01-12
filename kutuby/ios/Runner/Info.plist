@@ -53,5 +53,36 @@
     <string>Need to upload image</string>
     <key>NSCameraUsageDescription</key>
     <string>Need to upload image</string>
+    	<key>CLIENT_ID</key>
+	<string>222482691072-gceq5mvhoqdi9jufebjcgp9bvsduhura.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.222482691072-gceq5mvhoqdi9jufebjcgp9bvsduhura</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>222482691072-lbtg1mms152aeqoqd3662092ufhsgljl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7ARU9bQNRRas6Y12Xl7QtpNreUQf_R-E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>222482691072</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kutubuk.app</string>
+	<key>PROJECT_ID</key>
+	<string>kutubuk-b6fdb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kutubuk-b6fdb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:222482691072:ios:f9bd2904bb258c025b94e5</string>
+
   </dict>
 </plist>
