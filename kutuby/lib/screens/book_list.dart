@@ -7,8 +7,7 @@ import 'package:kutuby/providers/book_provider.dart';
 import 'package:kutuby/widgets/book_widget.dart';
 
 class BookList extends ConsumerStatefulWidget {
-  const BookList({this.mine = false, this.books = const [], Key? key})
-      : super(key: key);
+  const BookList({this.mine = false, this.books = const [], super.key});
   final bool mine;
   final List<Book> books;
   @override
@@ -24,7 +23,7 @@ class _BookListState extends ConsumerState<BookList> {
         backgroundColor: const Color(0xffF3F4F6),
         appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 124, 58, 237),
+            backgroundColor: const Color.fromARGB(255, 124, 58, 237),
             title: Text(
               widget.mine ? 'كتبي' : 'جميع الكتب',
               style: GoogleFonts.cairo(

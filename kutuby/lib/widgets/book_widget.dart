@@ -12,8 +12,7 @@ class BookWidget extends ConsumerWidget {
       {required this.book,
       this.canRemove = false,
       required this.refresh,
-      Key? key})
-      : super(key: key);
+      super.key});
   final bool canRemove;
   final Book book;
   final void Function() refresh;

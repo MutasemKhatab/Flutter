@@ -10,7 +10,7 @@ import 'package:kutuby/widgets/book_widget.dart';
 import 'package:kutuby/widgets/no_search.dart';
 
 class Home extends ConsumerStatefulWidget {
-  const Home(this.isUser, {Key? key}) : super(key: key);
+  const Home(this.isUser, {super.key});
   final bool isUser;
   @override
   ConsumerState<Home> createState() => _HomeState();
@@ -94,7 +94,7 @@ class _HomeState extends ConsumerState<Home> {
                       },
                     ),
                   ],
-                  backgroundColor: Color.fromARGB(255, 124, 58, 237),
+                  backgroundColor: const Color.fromARGB(255, 124, 58, 237),
                   centerTitle: true,
                   title: Text(
                     'مشاركة الكتب',
@@ -125,12 +125,10 @@ class _HomeState extends ConsumerState<Home> {
                                 NoSearch(
                                   bookNo: getAllBooks!.length,
                                 ),
-                                ...get2books!
-                                    .map((e) => BookWidget(
-                                          refresh: () {},
-                                          book: e,
-                                        ))
-                                    .toList(),
+                                ...get2books!.map((e) => BookWidget(
+                                      refresh: () {},
+                                      book: e,
+                                    )),
                                 if (getAllBooks.isNotEmpty)
                                   FilledButton(
                                       style: FilledButton.styleFrom(

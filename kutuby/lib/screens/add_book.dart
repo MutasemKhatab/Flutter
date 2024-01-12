@@ -12,7 +12,7 @@ import 'package:kutuby/providers/book_provider.dart';
 import 'package:kutuby/screens/book_list.dart';
 
 class AddBook extends ConsumerStatefulWidget {
-  const AddBook({Key? key}) : super(key: key);
+  const AddBook({super.key});
 
   @override
   ConsumerState<AddBook> createState() => _AddBookState();
@@ -78,7 +78,7 @@ class _AddBookState extends ConsumerState<AddBook> {
       if (_formKey.currentState!.validate()) {
         String url = '';
         final storage =
-            await FirebaseStorage.instance.ref().child('books').child(
+             FirebaseStorage.instance.ref().child('books').child(
                   bookImage!.path.split('/').last,
                 );
         await storage.putFile(
@@ -87,7 +87,6 @@ class _AddBookState extends ConsumerState<AddBook> {
                 contentType: 'image/jpeg',
                 customMetadata: {'userId': user!.uid}));
         url = await storage.getDownloadURL();
-        print(url);
         FirebaseFirestore.instance.collection('books').add({
           'user': {
             "publicName": showName,

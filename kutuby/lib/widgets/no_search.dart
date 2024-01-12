@@ -11,7 +11,7 @@ import 'package:kutuby/providers/book_provider.dart';
 import 'package:kutuby/screens/book_list.dart';
 
 class NoSearch extends ConsumerStatefulWidget {
-  const NoSearch({required this.bookNo, Key? key}) : super(key: key);
+  const NoSearch({required this.bookNo, super.key});
   final int bookNo;
 
   @override
@@ -47,7 +47,6 @@ class _NoSearchState extends ConsumerState<NoSearch> {
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
       setState(() {
-        print(userCredential.user!.displayName);
         user = userCredential.user;
       });
     } catch (e) {
@@ -240,8 +239,6 @@ class _NoSearchState extends ConsumerState<NoSearch> {
                                                     element.collage.trim() ==
                                                         collageController)
                                                 .toList();
-                                            print(collageController);
-                                            print(books.first.collage);
                                             Navigator.pop(context);
                                             Navigator.push(
                                                 context,
