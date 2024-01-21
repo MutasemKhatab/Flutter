@@ -16,8 +16,6 @@ class Home extends ConsumerStatefulWidget {
 }
 
 class _HomeState extends ConsumerState<Home> {
-  late Map<String, List<String>> _info;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +32,6 @@ class _HomeState extends ConsumerState<Home> {
                   child: Text('...الرجاء الاتصال بالإنترنت'),
                 );
               }
-              _info = ref.watch(infoProvider.notifier).getState();
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(mainAxisSize: MainAxisSize.max, children: [
