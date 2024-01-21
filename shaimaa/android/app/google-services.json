@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "457946488071",
+    "project_id": "shaimaa-ef908",
+    "storage_bucket": "shaimaa-ef908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457946488071:android:90b95e9ca0d9c96ac239a2",
+        "android_client_info": {
+          "package_name": "com.example.shaimaa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7LXuzKH1zWJ-LS8Au6zAIe9ON2cqU8lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
