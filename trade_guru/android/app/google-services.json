@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98978394609",
+    "project_id": "trade-guru-a8086",
+    "storage_bucket": "trade-guru-a8086.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98978394609:android:348bb360b6f2d593859450",
+        "android_client_info": {
+          "package_name": "com.example.trade_guru"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYOOXEPnxWheByNJHy-h21zqJJit0wk0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
