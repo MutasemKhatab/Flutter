@@ -1,0 +1,33 @@
+name: std_tech
+
+description: A new Flutter project.
+version: 1.0.0
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+dependencies:
+  carousel_slider: ^4.2.1
+  flutter:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  google_fonts: ^6.1.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/PoppinsBold.ttf
+          weight: 700
+        - asset: assets/fonts/PoppinsRegular.ttf
+          weight: 400
+        - asset: assets/fonts/PoppinsMedium.ttf
+          weight: 500
+    - family: Arimo
+      fonts:
+        - asset: assets/fonts/ArimoRegular.ttf
+          weight: 400
