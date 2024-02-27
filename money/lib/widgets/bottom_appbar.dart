@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:money/provider/page_provider.dart';
 
 class BottomAppbar extends ConsumerStatefulWidget {
-  const BottomAppbar({Key? key}) : super(key: key);
+  const BottomAppbar({super.key});
 
   @override
   ConsumerState createState() => _BottomAppbarState();
@@ -14,7 +14,7 @@ class _BottomAppbarState extends ConsumerState<BottomAppbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),

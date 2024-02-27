@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:money/models/btc_market_cap.dart';
 
 class BTCList extends StatefulWidget {
-  const BTCList({Key? key, required this.list}) : super(key: key);
+  const BTCList({super.key, required this.list});
   final List<BtcMarketCap> list;
   @override
-  _BTCListState createState() => _BTCListState();
+  State<BTCList> createState() => _BTCListState();
 }
 
 class _BTCListState extends State<BTCList> {
@@ -28,7 +28,7 @@ class _BTCListState extends State<BTCList> {
               children: [
                 Text(
                   widget.list[index].title,
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(width: 5),
                 Text(
@@ -44,7 +44,7 @@ class _BTCListState extends State<BTCList> {
             ),
             dense: true,
             subtitle: Text(widget.list[index].number,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.red,
                     fontSize: 15,
                     fontWeight: FontWeight.w500)),

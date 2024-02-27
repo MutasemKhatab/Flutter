@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BTCBox extends StatelessWidget {
-  const BTCBox({Key? key, required this.title, required this.subtitle})
-      : super(key: key);
+  const BTCBox({super.key, required this.title, required this.subtitle});
   final String title;
   final String subtitle;
   @override
@@ -24,10 +23,10 @@ class BTCBox extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(subtitle,
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       ),
     );

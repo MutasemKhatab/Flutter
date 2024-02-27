@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 
 class Step extends StatefulWidget {
   const Step(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.subtitle,
-      required this.icon})
-      : super(key: key);
+      required this.icon});
   final String title;
   final String subtitle;
   final String icon;
 
   @override
-  _StepState createState() => _StepState();
+  State<Step> createState() => _StepState();
 }
 
 class _StepState extends State<Step> {
@@ -33,8 +32,9 @@ class _StepState extends State<Step> {
               Text(widget.icon, style: const TextStyle(fontSize: 25)),
               const SizedBox(width: 10),
               Text(widget.title,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              Spacer(),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold)),
+              const Spacer(),
               IconButton(
                 onPressed: () {
                   setState(() {
@@ -49,7 +49,7 @@ class _StepState extends State<Step> {
             ],
           ),
           AnimatedCrossFade(
-              firstChild: SizedBox(),
+              firstChild: const SizedBox(),
               secondChild: Text(
                 widget.subtitle,
               ),

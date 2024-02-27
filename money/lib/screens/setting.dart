@@ -5,10 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Setting extends StatefulWidget {
-  const Setting({Key? key}) : super(key: key);
+  const Setting({super.key});
 
   @override
-  _SettingState createState() => _SettingState();
+  State<Setting> createState() => _SettingState();
 }
 
 class _SettingState extends State<Setting> {
@@ -36,11 +36,11 @@ class _SettingState extends State<Setting> {
                   ),
                 ),
               ),
-              SettingsListTile(
+              const SettingsListTile(
                 title: 'Crypto News',
                 icon: Icons.article_outlined,
               ),
-              SettingsListTile(
+              const SettingsListTile(
                 title: 'Past Results',
                 icon: Icons.history,
               ),
@@ -89,7 +89,7 @@ class _SettingState extends State<Setting> {
                   ),
                 ),
               ),
-              SettingsListTile(
+              const SettingsListTile(
                 title: 'Rate and Review',
                 icon: Icons.star,
               ),

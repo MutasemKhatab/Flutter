@@ -9,7 +9,7 @@ import 'package:money/widgets/bottom_appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Base extends ConsumerStatefulWidget {
-  const Base({Key? key}) : super(key: key);
+  const Base({super.key});
 
   @override
   ConsumerState<Base> createState() => _BaseState();
@@ -35,7 +35,7 @@ class _BaseState extends ConsumerState<Base>
             ? null
             : AppBar(
                 surfaceTintColor: Colors.white,
-                title: Text('Goldenmilioon'),
+                title: const Text('Goldenmilioon'),
                 centerTitle: true,
                 leading: IconButton(
                   icon: const Icon(Icons.person, size: 30, color: Colors.grey),
@@ -54,7 +54,7 @@ class _BaseState extends ConsumerState<Base>
                 ),
                 actions: [
                   IconButton(
-                    icon: Icon(Icons.notifications,
+                    icon: const Icon(Icons.notifications,
                         size: 35, color: Colors.black),
                     onPressed: () {},
                     style: IconButton.styleFrom(
@@ -66,13 +66,13 @@ class _BaseState extends ConsumerState<Base>
                   ),
                 ],
               ),
-        bottomNavigationBar: BottomAppbar(),
+        bottomNavigationBar: const BottomAppbar(),
         body: TabBarView(
           controller: _tabController,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Setting(),
-            Spots(),
+            const Setting(),
+            const Spots(),
             Center(
               child: FilledButton(
                 onPressed: () {
@@ -85,7 +85,7 @@ class _BaseState extends ConsumerState<Base>
                 child: const Text('Youtube'),
               ),
             ),
-            Home(),
+            const Home(),
           ],
         ));
   }

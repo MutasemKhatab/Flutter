@@ -9,10 +9,10 @@ import 'package:money/models/btc_martket_cap.dart';
 import 'package:money/models/spot_m.dart';
 
 class Input extends StatefulWidget {
-  const Input({Key? key}) : super(key: key);
+  const Input({super.key});
 
   @override
-  _InputState createState() => _InputState();
+  State<Input> createState() => _InputState();
 }
 
 class _InputState extends State<Input> {
@@ -47,7 +47,7 @@ class _InputState extends State<Input> {
   final TextEditingController _targetsChangeController =
       TextEditingController();
 
-  List<Target> _targets = [];
+  final List<Target> _targets = [];
 
   String _iconURL = '';
 
@@ -62,12 +62,12 @@ class _InputState extends State<Input> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'BTC Market Cap',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -78,28 +78,28 @@ class _InputState extends State<Input> {
                 children: [
                   TextField(
                     controller: _btcMarketCapTitleController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Title',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: _btcMarketCapNumberController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Number',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: _btcMarketCapChangeController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Change',
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   FilledButton.icon(
                     onPressed: _handelBTCMarketCapSubmit,
                     icon: const Icon(Icons.save, color: Colors.white),
@@ -111,12 +111,12 @@ class _InputState extends State<Input> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'BTC Martket Cap',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -130,17 +130,17 @@ class _InputState extends State<Input> {
                       Expanded(
                         child: TextField(
                           controller: _btcMartketCapBtcPriceController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Btc Price',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: _btcMartketCapBtcMarketCapController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Btc Market Cap',
                           ),
@@ -148,24 +148,24 @@ class _InputState extends State<Input> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: _btcMartketCapBtcTotalVolumeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Btc Total Volume',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller:
                               _btcMartketCapBtcChangePercentageController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Btc Change Percentage',
                           ),
@@ -173,7 +173,7 @@ class _InputState extends State<Input> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   FilledButton.icon(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.green),
@@ -188,10 +188,10 @@ class _InputState extends State<Input> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Text('Spots',
+            const SizedBox(height: 20),
+            const Text('Spots',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -202,36 +202,36 @@ class _InputState extends State<Input> {
                 children: [
                   TextField(
                     controller: _spotsTitleController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Title',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: _spotsDateController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Date',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: _spotsCurrentPriceController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Current Price',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: _spotsChangeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Change',
                           ),
@@ -239,23 +239,23 @@ class _InputState extends State<Input> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: _spotsBuyController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Buy',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: _spotsCapitalController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Capital',
                           ),
@@ -263,59 +263,56 @@ class _InputState extends State<Input> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: _spotsStopLossController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Stop Loss',
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text('Targets'),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
+                  const Text('Targets'),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: _targetsNumberController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Number',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: _targetsChangeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Change',
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       IconButton(
                         onPressed: _handelTargetsSubmit,
                         icon: const Icon(Icons.add),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 60,
                     child: ListView.builder(
                       itemBuilder: (context, index) => Text(
-                          _targets[index].number +
-                              ' ' +
-                              _targets[index].change +
-                              ' -- '),
+                          '${_targets[index].number} ${_targets[index].change} -- '),
                       scrollDirection: Axis.horizontal,
                       itemCount: _targets.length,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   FilledButton.icon(
                     onPressed: _handelImageSubmit,
                     icon: const Icon(Icons.image, color: Colors.white),
@@ -324,7 +321,7 @@ class _InputState extends State<Input> {
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   FilledButton.icon(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
@@ -339,7 +336,7 @@ class _InputState extends State<Input> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -425,8 +422,8 @@ class _InputState extends State<Input> {
   }
 
   void _handelImageSubmit() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image == null) return;
     final File file = File(image.path);
     final Reference storageRef = FirebaseStorage.instance

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:money/helpers/auth.dart';
 import 'package:money/main.dart';
@@ -5,7 +7,7 @@ import 'package:money/screens/input.dart';
 import 'package:money/screens/login.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,12 +11,10 @@ class BTCMartketNotifier extends StateNotifier<BtcMartketCap> {
             btcTotalVolume: ''));
 
   Future<BtcMartketCap> fetchBTCMartketCap() async {
-    print('******************** fetching btc market cap');
     final fs = FirebaseFirestore.instance;
     final data = await fs.collection('btcMarketCap').doc('main').get();
     final btcMartketCap = BtcMartketCap.fromJson(data.data()!);
     state = btcMartketCap;
-    print('******************** done fetching btc market cap');
     return btcMartketCap;
   }
 

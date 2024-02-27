@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 
 class SettingsListTile extends StatefulWidget {
   const SettingsListTile(
-      {Key? key, required this.title, required this.icon, this.trailing, this.onTap})
-      : super(key: key);
+      {super.key, required this.title, required this.icon, this.trailing, this.onTap});
   final String title;
   final IconData icon;
   final Widget? trailing;
   final void Function()? onTap;
 
   @override
-  _SettingsListTileState createState() => _SettingsListTileState();
+  State<SettingsListTile> createState() => _SettingsListTileState();
 }
 
 class _SettingsListTileState extends State<SettingsListTile> {

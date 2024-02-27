@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Contacts extends StatelessWidget {
-  const Contacts({Key? key, required this.title, this.image, this.onTap})
-      : super(key: key);
+  const Contacts({super.key, required this.title, this.image, this.onTap});
   final String title;
   final String? image;
   final void Function()? onTap;
@@ -27,9 +26,9 @@ class Contacts extends StatelessWidget {
         leading: image != null ? Image.asset(image!) : null,
         title: Text(
           title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        subtitle: Text('join now >',
+        subtitle: const Text('join now >',
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10),
       ),

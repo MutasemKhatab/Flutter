@@ -3,9 +3,9 @@ import 'package:money/models/spot_m.dart';
 
 class Spot extends StatefulWidget {
   const Spot({
-    Key? key,
+    super.key,
     required this.spot,
-  }) : super(key: key);
+  });
   final SpotM spot;
   @override
   State<Spot> createState() => _SpotState();
@@ -29,13 +29,13 @@ class _SpotState extends State<Spot> {
             leading: const Icon(Icons.monetization_on),
             title: Text(
               widget.spot.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
               'Open on ${widget.spot.date}',
-              style: TextStyle(color: Colors.green, fontSize: 12),
+              style: const TextStyle(color: Colors.green, fontSize: 12),
             ),
             trailing: IconButton(
                 onPressed: () {
@@ -52,23 +52,23 @@ class _SpotState extends State<Spot> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   'Current Price',
                   style: TextStyle(fontSize: 15),
                 ),
                 Text(
                   widget.spot.currentPrice,
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 ),
                 Text(
                   widget.spot.change,
-                  style: TextStyle(color: Colors.red, fontSize: 15),
+                  style: const TextStyle(color: Colors.red, fontSize: 15),
                 ),
               ],
             ),
           ),
           AnimatedCrossFade(
-              firstChild: SizedBox(),
+              firstChild: const SizedBox(),
               secondChild: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -89,7 +89,7 @@ class _SpotState extends State<Spot> {
                             child: Text(
                               'Buy: ${widget.spot.buy}',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  const TextStyle(color: Colors.white, fontSize: 15),
                             ),
                           ),
                         ),
@@ -106,7 +106,7 @@ class _SpotState extends State<Spot> {
                             child: Text(
                               'Capital: ${widget.spot.capital}%',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  const TextStyle(color: Colors.white, fontSize: 15),
                             ),
                           ),
                         ),
@@ -124,7 +124,7 @@ class _SpotState extends State<Spot> {
                       ),
                       child: Text(
                         'StopLoss: ${widget.spot.stopLoss}',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: const TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     ),
                   ],
@@ -166,17 +166,17 @@ class TargetsList extends StatelessWidget {
               children: [
                 Text(
                   'Target ${index++}',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: const TextStyle(color: Colors.white, fontSize: 15),
                 ),
                 Text(
                   e.number,
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: const TextStyle(color: Colors.white, fontSize: 15),
                 ),
                 Text(
                   e.change,
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: const TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                Icon(Icons.check_circle, color: Colors.white)
+                const Icon(Icons.check_circle, color: Colors.white)
               ],
             ),
           ),

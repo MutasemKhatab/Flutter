@@ -1,13 +1,15 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:money/helpers/auth.dart';
 import 'package:money/main.dart';
 import 'package:money/screens/base.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
@@ -28,7 +30,7 @@ class _LoginState extends State<Login> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 50,
                 ),
                 const Text(
@@ -104,7 +106,7 @@ class _LoginState extends State<Login> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       foregroundColor: Theme.of(context).colorScheme.secondary,
-                      fixedSize: Size(200, 50),
+                      fixedSize: const Size(200, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -142,7 +144,7 @@ class _LoginState extends State<Login> {
                     },
                     child: Text(isLogin ? 'Login' : 'Register'),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
                       setState(() {
@@ -168,9 +170,9 @@ class _LoginState extends State<Login> {
                     ),
                   );
                 },
-                icon: Icon(Icons.g_mobiledata_rounded),
-                label: Text('Login with Google')),
-            SizedBox(height: 30),
+                icon: const Icon(Icons.g_mobiledata_rounded),
+                label: const Text('Login with Google')),
+            const SizedBox(height: 30),
           ],
         ),
       ),

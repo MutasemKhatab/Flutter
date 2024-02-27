@@ -10,7 +10,7 @@ import 'package:money/widgets/contacts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends ConsumerStatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   ConsumerState<Home> createState() => _HomeState();
@@ -55,8 +55,8 @@ class _HomeState extends ConsumerState<Home> {
                     Uri.parse('https://t.me/goldenmilion'),
                   ),
                 ),
-                SizedBox(height: 20),
-                Row(
+                const SizedBox(height: 20),
+                const Row(
                   children: [
                     Icon(
                       Icons.arrow_outward_sharp,
@@ -68,17 +68,17 @@ class _HomeState extends ConsumerState<Home> {
                             fontSize: 20, fontWeight: FontWeight.bold)),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 BTCList(list: btcMartketCapList),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Contacts(
                   title: 'Crypto News',
                   onTap: () => launchUrl(
                     Uri.parse('https://coinmarketcap.com/'),
                   ),
                 ),
-                SizedBox(height: 20),
-                Row(
+                const SizedBox(height: 20),
+                const Row(
                   children: [
                     Icon(
                       Icons.arrow_outward_sharp,
@@ -90,28 +90,28 @@ class _HomeState extends ConsumerState<Home> {
                             fontSize: 20, fontWeight: FontWeight.bold)),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     BTCBox(
                       title: 'BTC Price',
                       subtitle: btcMarketCap!.btcPrice,
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     BTCBox(
                       title: 'BTC Change 24h',
                       subtitle: btcMarketCap!.btcChangePercentage,
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     BTCBox(
                       title: 'BTC Market Cap',
                       subtitle: btcMarketCap!.btcMarketCap,
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     BTCBox(
                       title: 'BTC Total Volume',
                       subtitle: btcMarketCap!.btcTotalVolume,
