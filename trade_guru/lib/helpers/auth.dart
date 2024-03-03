@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/main.dart';
 import 'package:trade_guru/screens/home.dart';
 
@@ -15,12 +17,25 @@ class Auth {
   Future<bool> signIn(String email, String password) async {
     try {
       userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
+      if (FirebaseAuth.instance.currentUser!.emailVerified == false) {
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(Lang.pleaseVerifyYourEmailAddress),
+          ),
+        );
+        return false;
+      }
       final ref = await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential!.user!.uid)
           .get();
       isAdmin = ref.data()!['isAdmin'];
+      await FirebaseMessaging.instance.subscribeToTopic('notification');
       push();
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool('isLoggedIn', true);
@@ -34,13 +49,19 @@ class Auth {
   Future<bool> signUp(String email, String password, String name) async {
     try {
       userCredential = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
+      await userCredential?.user!.sendEmailVerification();
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential!.user!.uid)
           .set({
         'name': name,
         'email': email,
+        'endSubscription': DateTime.now()
+            .subtract(const Duration(minutes: 5))
+            .toIso8601String(),
         'isAdmin': false,
       });
       return true;

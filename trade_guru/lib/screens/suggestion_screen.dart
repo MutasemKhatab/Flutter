@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:trade_guru/models/suggest.dart';
 import 'package:trade_guru/widgets/tp_tile.dart';
 
 class SuggestionScreen extends StatefulWidget {
-  const SuggestionScreen({required this.suggest, Key? key}) : super(key: key);
+  const SuggestionScreen({required this.suggest, super.key});
 
   final Suggest suggest;
   @override

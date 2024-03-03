@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/providers/suggestions_provider.dart';
+import 'package:trade_guru/widgets/subscribe_button.dart';
 import 'package:trade_guru/widgets/suggestion_tile.dart';
 
 class SuggestionsList extends ConsumerStatefulWidget {
@@ -12,6 +14,7 @@ class SuggestionsList extends ConsumerStatefulWidget {
 
 class _SuggestionsListState extends ConsumerState<SuggestionsList> {
   bool firstTime = true;
+
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
@@ -32,6 +35,27 @@ class _SuggestionsListState extends ConsumerState<SuggestionsList> {
                 color: Theme.of(context).colorScheme.secondary,
               ));
             }
+            if (snapshot.data == false && widget.type != 'Closed') {
+              return Center(
+                  child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(Lang.yourSubscriptionHasEnded,
+                      style: const TextStyle(color: Colors.white)),
+                  const SizedBox(height: 10),
+                  const SubscribeButton()
+                ],
+              ));
+            }
+            if (snapshot.data == false && widget.type == 'Closed') {
+              final list =
+                  ref.watch(suggestionProvider.notifier).closedSuggestions;
+              return ListView.builder(
+                  itemCount: list.length,
+                  itemBuilder: (context, index) {
+                    return SuggestionTile(suggest: list[index]);
+                  });
+            }
             if (snapshot.hasError) {
               return Center(
                   child: Text(snapshot.error.toString(),
@@ -43,10 +67,10 @@ class _SuggestionsListState extends ConsumerState<SuggestionsList> {
             if (list.isEmpty) {
               return ListView(children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.4),
-                const Center(
-                    child: Text('No Suggestions Yet\nSwipe Down to Refresh',
+                Center(
+                    child: Text(Lang.noSuggestionsYetSwipeDownToRefresh,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white))),
+                        style: const TextStyle(color: Colors.white))),
               ]);
             }
             return ListView.builder(

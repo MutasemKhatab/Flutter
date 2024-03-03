@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trade_guru/firebase_options.dart';
+import 'package:trade_guru/helpers/app_notfications.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/helpers/theme.dart';
 import 'package:trade_guru/screens/home.dart';
 import 'package:trade_guru/screens/login_screen.dart';
@@ -16,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await AppNotifications().setupNotification();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -24,14 +27,15 @@ class MyApp extends StatelessWidget {
   Future<Widget> isLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? isLoggedIn = prefs.getBool('isLoggedIn');
+    Lang.isEn = prefs.getBool('isEn') ?? true;
 
     final doc = await FirebaseFirestore.instance
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
     isAdmin = doc.data()!['isAdmin'];
-
-    if (isLoggedIn == true) {
+    if (isLoggedIn == true &&
+        FirebaseAuth.instance.currentUser?.emailVerified == true) {
       return const Home();
     } else {
       return const LoginScreen();
@@ -42,6 +46,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
+      debugShowCheckedModeBanner: false,
       home: FutureBuilder(
         future: isLoggedIn(),
         builder: (context, snapshot) {

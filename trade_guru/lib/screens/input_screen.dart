@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/models/suggest.dart';
 import 'package:trade_guru/providers/suggestions_provider.dart';
 import 'package:trade_guru/widgets/my_text_field.dart';
 
 class InputScreen extends ConsumerStatefulWidget {
-  const InputScreen({Key? key}) : super(key: key);
+  const InputScreen({super.key});
 
   @override
   ConsumerState<InputScreen> createState() => _InputScreenState();
@@ -28,7 +29,7 @@ class _InputScreenState extends ConsumerState<InputScreen> {
         centerTitle: true,
         backgroundColor: const Color(0xFF131723),
         foregroundColor: Colors.white,
-        title: const Text('New Suggestion'),
+        title: Text(Lang.addSuggestion),
       ),
       backgroundColor: const Color(0xFF0A0A0A),
       body: SingleChildScrollView(
@@ -38,7 +39,7 @@ class _InputScreenState extends ConsumerState<InputScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyTextField(
-                label: "Currency",
+                label: Lang.currency,
                 icon: Icons.currency_exchange,
                 controller: currencyController,
                 keyboardType: TextInputType.text,
@@ -48,7 +49,7 @@ class _InputScreenState extends ConsumerState<InputScreen> {
                 children: [
                   Expanded(
                     child: MyTextField(
-                      label: "From",
+                      label: Lang.from,
                       icon: Icons.arrow_downward,
                       controller: fromController,
                       keyboardType: TextInputType.number,
@@ -57,7 +58,7 @@ class _InputScreenState extends ConsumerState<InputScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: MyTextField(
-                      label: "To",
+                      label: Lang.to,
                       icon: Icons.arrow_upward,
                       controller: toController,
                       keyboardType: TextInputType.number,
@@ -164,7 +165,7 @@ class _InputScreenState extends ConsumerState<InputScreen> {
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value,
+                      child: Text(value == 'Buy' ? Lang.buy : Lang.sell,
                           style: const TextStyle(
                               color: Colors.white, fontFamily: 'jura')),
                     );
@@ -187,7 +188,9 @@ class _InputScreenState extends ConsumerState<InputScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           backgroundColor:
                               Theme.of(context).colorScheme.secondary,
-                          content: const Text('Fill all fields')));
+                          content: Text(
+                            Lang.fillAllFields,
+                          )));
                       return;
                     }
                     setState(() {
@@ -216,8 +219,8 @@ class _InputScreenState extends ConsumerState<InputScreen> {
                   ),
                   child: isUploading
                       ? const CircularProgressIndicator()
-                      : const Text('Submit',
-                          style: TextStyle(
+                      : Text(Lang.submit,
+                          style: const TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold)),
                 ),
               ),

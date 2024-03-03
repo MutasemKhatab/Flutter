@@ -1,11 +1,15 @@
 import 'dart:ui';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:trade_guru/helpers/auth.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/widgets/my_text_field.dart';
 
+import '../helpers/app_notfications.dart';
+
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -78,9 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Text(
-                  isLogin ? 'Login' : 'Sign Up',
+                  isLogin ? Lang.login : Lang.signUp,
                   style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                        fontSize: 70,
+                        fontSize: 60,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.secondary,
                       ),
@@ -97,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     height: isLogin ? 0 : 50,
                     child: MyTextField(
-                        label: 'Name',
+                        label: Lang.name,
                         controller: nameController,
                         keyboardType: TextInputType.name,
                         icon: Icons.person),
@@ -105,13 +109,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 if (!isLogin) const SizedBox(height: 20),
                 MyTextField(
-                    label: 'Email',
+                    label: Lang.email,
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     icon: Icons.email),
                 const SizedBox(height: 20),
                 MyTextField(
-                    label: 'Password',
+                    label: Lang.password,
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
                     icon: Icons.lock),
@@ -127,9 +131,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 (!isLogin && nameController.text.isEmpty)) {
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
+                                SnackBar(
                                   backgroundColor: Colors.red,
-                                  content: Text('Please fill all the fields'),
+                                  content: Text(Lang.fillAllFields),
                                 ),
                               );
                               return;
@@ -145,6 +149,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   emailController.text,
                                   passwordController.text,
                                   nameController.text)) {
+                                AppNotifications().showLocalNotification(
+                                  const RemoteMessage(
+                                    notification: RemoteNotification(
+                                      title: 'Welcome',
+                                      body: 'Please verify your email address',
+                                    ),
+                                  ),
+                                );
                                 setState(() {
                                   isLogin = true;
                                 });
@@ -169,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: isProcessing
                         ? const CircularProgressIndicator()
-                        : Text(isLogin ? 'Login' : 'Sign Up'),
+                        : Text(isLogin ? Lang.login : Lang.signUp),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -186,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                   ),
                   child: Text(
-                    isLogin ? 'Sign Up' : 'Login',
+                    isLogin ? Lang.signUp : Lang.login,
                     style: const TextStyle(
                       color: Colors.white,
                     ),

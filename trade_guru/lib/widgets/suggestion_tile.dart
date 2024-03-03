@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:trade_guru/helpers/lang.dart';
 import 'package:trade_guru/main.dart';
 import 'package:trade_guru/models/suggest.dart';
 import 'package:trade_guru/providers/suggestions_provider.dart';
 import 'package:trade_guru/screens/suggestion_screen.dart';
 
 class SuggestionTile extends ConsumerWidget {
-  const SuggestionTile({required this.suggest, Key? key}) : super(key: key);
+  const SuggestionTile({required this.suggest, super.key});
   final Suggest suggest;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -80,7 +81,7 @@ class SuggestionTile extends ConsumerWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(2),
                       child: Text(
-                        suggest.isBuy ? "Buy" : "Sell",
+                        suggest.isBuy ? Lang.buy : Lang.sell,
                         style: TextStyle(
                           color: suggest.isBuy ? Colors.green : Colors.red,
                           fontSize: 12,
@@ -144,9 +145,9 @@ class SuggestionTile extends ConsumerWidget {
                   return [
                     if (suggest.type == 'Active')
                       PopupMenuItem(
-                        child: const Text(
-                          'Move to Processing',
-                          style: TextStyle(
+                        child: Text(
+                          Lang.moveToProcessing,
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
@@ -157,9 +158,9 @@ class SuggestionTile extends ConsumerWidget {
                         },
                       ),
                     PopupMenuItem(
-                      child: const Text(
-                        'Move to Closed',
-                        style: TextStyle(
+                      child: Text(
+                        Lang.moveToClosed,
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -170,9 +171,9 @@ class SuggestionTile extends ConsumerWidget {
                           builder: (context) {
                             return AlertDialog(
                               backgroundColor: const Color(0xFF131723),
-                              title: const Text(
-                                'Enter the points',
-                                style: TextStyle(
+                              title: Text(
+                                Lang.enterThePoints,
+                                style: const TextStyle(
                                   color: Colors.white,
                                 ),
                               ),
@@ -196,9 +197,9 @@ class SuggestionTile extends ConsumerWidget {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text(
-                                    'Cancel',
-                                    style: TextStyle(
+                                  child: Text(
+                                    Lang.cancel,
+                                    style: const TextStyle(
                                       color: Colors.white,
                                     ),
                                   ),
@@ -211,9 +212,9 @@ class SuggestionTile extends ConsumerWidget {
                                             points: points);
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text(
-                                    'Ok',
-                                    style: TextStyle(
+                                  child: Text(
+                                    Lang.ok,
+                                    style: const TextStyle(
                                       color: Colors.white,
                                     ),
                                   ),

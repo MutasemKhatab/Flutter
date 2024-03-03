@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TpTile extends StatelessWidget {
-  const TpTile({required this.index, required this.tp, Key? key})
-      : super(key: key);
+  const TpTile({required this.index, required this.tp, super.key});
   final int index;
   final String tp;
   @override

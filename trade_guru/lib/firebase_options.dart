@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDYOOXEPnxWheByNJHy-h21zqJJit0wk0o',
-    appId: '1:98978394609:android:348bb360b6f2d593859450',
-    messagingSenderId: '98978394609',
-    projectId: 'trade-guru-a8086',
-    storageBucket: 'trade-guru-a8086.appspot.com',
+    apiKey: 'AIzaSyCuz4fbYXKJ0evG__kp39WPYZiPGUFeM6c',
+    appId: '1:343060686898:android:f9254ff17e82fd909bb42b',
+    messagingSenderId: '343060686898',
+    projectId: 'trade-guru-487dd',
+    storageBucket: 'trade-guru-487dd.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAqHusrTSktX-g2bRPsBs22v9wS5NPS-Z4',
-    appId: '1:98978394609:ios:31492750161f077e859450',
-    messagingSenderId: '98978394609',
-    projectId: 'trade-guru-a8086',
-    storageBucket: 'trade-guru-a8086.appspot.com',
-    iosBundleId: 'com.example.tradeGuru',
+    apiKey: 'AIzaSyBJwtNdUBdUTmD5xoNk4fR4ZF4894Y1Vkw',
+    appId: '1:343060686898:ios:ac3b88a8dc5921cb9bb42b',
+    messagingSenderId: '343060686898',
+    projectId: 'trade-guru-487dd',
+    storageBucket: 'trade-guru-487dd.appspot.com',
+    iosBundleId: 'com.example.tradeguru',
   );
 }

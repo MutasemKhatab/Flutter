@@ -6,8 +6,7 @@ class MyTextField extends StatefulWidget {
       required this.controller,
       required this.keyboardType,
       this.icon,
-      Key? key})
-      : super(key: key);
+      super.key});
   final String label;
   final TextEditingController controller;
   final TextInputType keyboardType;
@@ -43,6 +42,7 @@ class _MyTextFieldState extends State<MyTextField> {
       )),
       child: TextField(
         obscureText: widget.keyboardType == TextInputType.visiblePassword,
+        textInputAction: TextInputAction.next,
         onTap: () {
           setState(() {
             isFocused = true;
